@@ -9,6 +9,8 @@ import { fileURLToPath } from "url";
 import connectDB from './config/db.js'
 import errorHandler from '../backend/middleware/erroHandler.js';
 
+import authRoutes from '../backend/routes/authRoutes.js';
+
 // ES6 module __dirname alternative
 
 const __filename = fileURLToPath(import.meta.url);
@@ -35,10 +37,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // STATIC FOLDER FOR UPLOADS
-app.use('/uploads', express.static(path.join[__direname, 'uploads']));
+app.use('/uploads', express.static(path.join(__direname, 'uploads')));
 
 
 //Routes
+app.use('/api/auth', authRoutes)
+
 app.use(errorHandler);
 
 //404 handler
