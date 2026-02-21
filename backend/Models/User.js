@@ -20,12 +20,10 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Please provide Password'],
-        unique: true,
-        lowercase: true,
         minlength: [6, 'Password must be at least 6 characters long'],
         select: false
     },
-    profileImages: {
+    profileImage: {
         type: String,
         default: null
     }
@@ -36,16 +34,19 @@ const userSchema = new mongoose.Schema({
 // Hash password before save
 
 userSchema.pre('save', async function(next) {
+    console.log('pre save hook called', this.isModified('password'));
     if (!this.isModified('password')){
-        next();
+        return;
     }
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
+    // return next();
 });
 
 // compare password method
 
 userSchema.methods.matchPassword = async function(enteredPassword) {
+    console.log(enteredPassword, 'password', this.password);
     return await bcrypt.compare(enteredPassword, this.password);
 };
 
