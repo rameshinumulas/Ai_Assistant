@@ -26,7 +26,11 @@ export const register = async (req, res, next) => {
 // access Public
 
 export const login =async (req, res, next) => {
-
+    try {
+        
+    } catch (error) {
+        
+    }
 }
 
 
@@ -36,7 +40,11 @@ export const login =async (req, res, next) => {
 
 
 export const getProfile = async (req, res, next) => {
-
+    try {
+        
+    } catch (error) {
+        
+    }
 }
 
 // @desc  Update user profile
@@ -45,7 +53,11 @@ export const getProfile = async (req, res, next) => {
 
 
 export const updateProfile = async (req, res, next) => {
-    
+    try {
+        
+    } catch (error) {
+        
+    }
 }
 
 // @desc  Change password
@@ -54,7 +66,11 @@ export const updateProfile = async (req, res, next) => {
 
 
 export const changePassword = async (req, res, next) => {
-    
+     try {
+        
+    } catch (error) {
+        
+    }   
 }
 
 
