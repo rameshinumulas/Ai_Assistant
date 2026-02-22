@@ -35,7 +35,7 @@ const quizSchema = new mongoose.Schema({
             default: ''
         },
         difficulty: {
-            type: STring,
+            type: String,
             enum: ['easy', 'medium', 'hard'],
             default: 'medium'
         },
