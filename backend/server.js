@@ -11,6 +11,7 @@ import errorHandler from '../backend/middleware/erroHandler.js';
 
 import authRoutes from '../backend/routes/authRoutes.js';
 import documentRoutes from '../backend/routes/documentRoutes.js';
+import flashcardRoutes from '../backend/routes/flashcardRoutes.js';
 // ES6 module __dirname alternative
 
 const __filename = fileURLToPath(import.meta.url);
@@ -43,6 +44,7 @@ app.use('/uploads', express.static(path.join(__direname, 'uploads')));
 //Routes
 app.use('/api/auth', authRoutes)
 app.use('/api/documents', documentRoutes);
+app.use('/api/flashcards', flashcardRoutes);
 
 app.use(errorHandler);
 
